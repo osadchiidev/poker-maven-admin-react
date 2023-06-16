@@ -1,21 +1,27 @@
-import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Row, Input, Button } from "antd";
 import SidebarLogo from "../../assets/images/logo.png";
 import buyChip from "../../assets/images/deposit.png";
 import Walletpng from "../../assets/images/wallet.png";
-
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from "react-toastify";
+import { login } from "../../store/actions/user";
 
 const SidebarComponent = () => {
     const navigate = useNavigate();
-    const location = useLocation();
-    const pIndex = React.useMemo(() => {
-        const p = location.pathname;
-        return p.includes("projects") ? 2 : p.includes("messages") ? 3 : p.includes("settings") ? 4 : 1;
-    }, [location]);
+    const dispatch = useDispatch();
     const isLogin = useSelector(s => s.user.isLogin);
-
+    const [loginInfo, setLoginInfo] = useState({
+        player: '',
+        password: ''
+    })
+    const onLogin = () => {
+        if (loginInfo.player === '' || loginInfo.password === '') {
+            toast.warn('Please input player information'); return;
+        }
+        dispatch(login(loginInfo))
+    }
     return (
         <>
             <div className="menu-space" />
@@ -25,7 +31,7 @@ const SidebarComponent = () => {
                 </Row>
                 <div className="menu">
                     {
-                        !isLogin ?
+                        isLogin ?
                             <Row>
                                 <Row className="w-full">
                                     <div className="menu-item w-full buy-chip" onClick={() => navigate("/wallet")} ><img src={Walletpng} style={{ width: 30 }} /><span>My Wallet</span></div>
@@ -36,13 +42,13 @@ const SidebarComponent = () => {
                             </Row> :
                             <Row>
                                 <Row>
-                                    <Input placeholder="Poker maven ID" />
+                                    <Input placeholder="Poker maven ID" onChange={e => setLoginInfo({...loginInfo, player: e.target.value})} />
                                 </Row>
                                 <Row>
-                                    <Input placeholder="Password" type="password" />
+                                    <Input placeholder="Password" type="password" onChange={e => setLoginInfo({...loginInfo, password: e.target.value})}/>
                                 </Row>
                                 <Row style={{ width: '100%' }}>
-                                    <Button size="large" className="login-btn w-full" type="primary">Login</Button>
+                                    <Button size="large" className="login-btn w-full" type="primary" onClick={() => onLogin()}>Login</Button>
                                 </Row>
                             </Row>
                     }
