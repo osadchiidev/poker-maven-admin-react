@@ -12,11 +12,21 @@ import { toast } from "react-toastify";
 export function* loginRequest(action) {
     try {
         const res = yield call(axios.post, '/user/login', action.data);
-        // const {token} = res.data;
-        // localStorage.setItem("token", token);
-        // yield call(axios.setToken, token);
-        // yield put(loginSuccess(res.data));
-        // action.data.navigate('/dashboard');
+        const {token, RealName, Avatar, success, msg } = res.data;
+        if (msg) {
+            if (success)
+                toast.success(msg);
+            else 
+                toast.warn(msg);
+        }
+        if (success) {
+            localStorage.setItem("token", token);
+            localStorage.setItem("user", { RealName, Avatar});
+            yield call(axios.setToken, token);
+            yield put(loginSuccess(res.data));
+            window.location.reload();
+        }     
+        
     } catch (e) {
         console.log(e)
         toast.warn(e?.response?.data?.message || 'An error occurred');
