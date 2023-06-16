@@ -21,7 +21,7 @@ export function* loginRequest(action) {
         }
         if (success) {
             localStorage.setItem("token", token);
-            localStorage.setItem("user", { RealName, Avatar});
+            localStorage.setItem("user", JSON.stringify({ RealName, Avatar}));
             yield call(axios.setToken, token);
             yield put(loginSuccess(res.data));
             window.location.reload();
