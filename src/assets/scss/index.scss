@@ -164,6 +164,23 @@
 	background-color: rgb(82, 82, 82) !important;
 	cursor: pointer;
 }
+
+.wallet-card {
+	height: 150px;
+	background-color: $darkBg2;
+	border-radius: 5px;
+	text-align: center;
+	justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	font-weight: bold;
+	padding: 10px;
+	background-image: url('../images/Metamask.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	filter: drop-shadow(5px 5px 5px black);
+}
+
 .notifications {
 	width: 185px;
 	height: 200px;

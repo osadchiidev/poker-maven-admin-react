@@ -6,14 +6,26 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import configureStore from './store/store';
 import history from "./utils/history";
+import { createConfig, mainnet, WagmiConfig } from 'wagmi';
+import { createPublicClient, http } from 'viem'
+
+const config = createConfig({
+  autoConnect: true,
+  publicClient: createPublicClient({
+    chain: mainnet,
+    transport: http(),
+  }),
+});
 
 const store = configureStore({}, history);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <WagmiConfig config={config} >
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </WagmiConfig>
   </React.StrictMode>
 );
 
