@@ -34,10 +34,10 @@ const SidebarComponent = () => {
                         isLogin ?
                             <Row>
                                 <Row className="w-full">
-                                    <div className="menu-item w-full buy-chip" onClick={() => navigate("/wallet")} ><img src={Walletpng} style={{ width: 30 }} /><span>My Wallet</span></div>
+                                    <div className="menu-item w-full buy-chip" onClick={() => navigate("/wallet")} ><img src={Walletpng} style={{ width: 30 }} /><span>Wallet & Chip</span></div>
                                 </Row>
                                 <Row className="w-full">
-                                    <div className="menu-item w-full buy-chip" onClick={() => navigate("/chip")} ><img src={buyChip} style={{ width: 30 }} /> <span>Buy Chip</span></div>
+                                    <div className="menu-item w-full buy-chip" onClick={() => navigate("/chip")} ><img src={buyChip} style={{ width: 30 }} /> <span>Transactions</span></div>
                                 </Row>
                             </Row> :
                             <Row>
