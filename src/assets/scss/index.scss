@@ -89,7 +89,7 @@
 	width: 100%;
 	border-radius: 30px;
 	filter: drop-shadow(5px 5px 5px black);
-	justify-content: end;
+	justify-content: space-between;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -272,6 +272,159 @@ h4 {
 .chip-container {
 	margin-top: 10px;
 }
+.popoverMenu {
+	max-width: 190px;
+	.item {
+		padding: 9px 18px;
+		border-bottom: 1px solid $border;
+		cursor: pointer;
+		.ellipsis {
+			width: 110px;
+		}
+		img {
+			width: 30px;
+			height: 30px;
+			margin-right: 7px;
+			border-radius: 20px;
+		}
+	}
+	.profileHead {
+		justify-content: flex-start;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: white;
+	}
+}
 
+.popoverBtn {
+	cursor: pointer;
+}
+
+.ant-popover-inner-content {
+	padding: 0;
+}
+
+.profile-container {
+	width: 100%;
+	min-height: 300px;
+	background: $darkBg2;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	.profile-down {
+		background-color: white;
+		height: 150px;
+		width: 100%;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		background-color: #1d803a;
+		background-image: conic-gradient(from 1turn,rgba(88,175,16,1),rgba(29,128,58,1));
+	}
+	.profile-up {
+		height: 150px;
+		width: 100%;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+	}
+}
+
+.metamask-btn {
+	background-color: #5617cb;
+	background-image: conic-gradient(from 1turn,rgba(136,83,252,1),rgba(110,52,226,1));
+	height: 60px;
+	width: 100%;
+	margin-top: 20px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+.metamask-btn:hover {
+	cursor: pointer;
+	background-color: #42119c;
+	background-image: conic-gradient(from 1turn,rgb(89, 55, 161),rgb(73, 26, 165));
+}
+.otherwallet-btn {
+	background-color: #5617cb;
+	background-image: conic-gradient(from 1turn,rgba(136,83,252,1),rgba(110,52,226,1));
+	height: 60px;
+	width: 100%;
+	margin-top: 20px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+.otherwallet-btn:hover {
+	cursor: pointer;
+	background-color: #42119c;
+	background-image: conic-gradient(from 1turn,rgb(89, 55, 161),rgb(73, 26, 165));
+}
+
+.control-panel {
+	border-radius: 20px;
+	background-color: $darkBg2;
+	min-height: calc(100vh - 190px);
+	padding: 20px;
+
+	.tab-body {
+		margin-top: 10px;
+	}
+}
+
+.control-tabs {
+	height: 40px;
+	background-color: $darkBg;
+	border-radius: 10px;
+	padding: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	width: auto;
+	.control-tab {
+		height: 100%;
+		border-radius: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		margin-right: 5px;
+		background-color: #1d803a;
+		background-image: conic-gradient(from 1turn,rgba(88,175,16,1),rgba(29,128,58,1));
+	}
+	.control-tab.active {
+		background-color: #5617cb;
+		background-image: conic-gradient(from 1turn,rgba(136,83,252,1),rgba(110,52,226,1));
+	}
+	.control-tab:hover {
+		cursor: pointer;
+	}
+}
+
+.chip-budget {
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.buy-chip-btn {
+	margin-top: 50px;
+	height: 40px;
+	background-color: #1d803a;
+	background-image: conic-gradient(from 1turn,rgba(88,175,16,1),rgba(29,128,58,1));
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+
+.buy-chip-btn:hover {
+	cursor: pointer;
+	background-color: #1d803a;
+	background-image: conic-gradient(from 1turn,rgb(59, 117, 12),rgb(15, 71, 32));
+}
 @import "responsive";
 @import "dark";

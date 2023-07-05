@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import "./index.scss";
 import "./assets/scss/index.scss";
 import { ToastContainer } from 'react-toastify';
 import { ConfigProvider } from "antd";
-import { BrowserRouter } from 'react-router-dom';
-import { Routes, Route} from 'react-router-loading';
+import { BrowserRouter, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-loading';
 import PortalLayout from './components/layouts/PortalLayout';
 import cx from 'classnames';
 import { useSelector } from "react-redux";
@@ -17,10 +17,10 @@ import Chip from "./pages/Chip";
 import Wallet from "./pages/Wallet";
 import Play from "./pages/Play";
 
-const MyLoadingScreen = () => 
-    <div className="loader-container">
-      <ClipLoader color={'#fff'} size={100} />
-    </div>
+const MyLoadingScreen = () =>
+  <div className="loader-container">
+    <ClipLoader color={'#fff'} size={100} />
+  </div>
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
     window.addEventListener('resize', handleResize)
   })
 
-  
+
   return (
     <ConfigProvider theme={{
       token: {
@@ -45,21 +45,18 @@ function App() {
         <BrowserRouter>
           <Routes maxLoadingTime={1300} loadingScreen={MyLoadingScreen}>
             <Route path="/" element={<PortalLayout />} >
-              <Route index element={<Portal />} loading/>
-              <Route path="/wallet" element={<Wallet />} loading/>
-              <Route path="/chip" element={<Chip />} loading/>
+              <Route index element={<Portal />} loading />
+              {auth.isLogin ? 
+                <React.Fragment>
+                  <Route path="/wallet" element={<Wallet />} loading />
+                  <Route path="/chip" element={<Chip />} loading />
+                </React.Fragment>:
+                <Route path="*" element={<Navigate to="/" />} />
+              }
             </Route>
-            <Route path="/play" element={<Play />} loading/>
-            {/* <Route path="/login" element={!auth.isLogin ? <Login /> : <Navigate to="/dashboard" />} />
-          <Route path="/signup" element={!auth.isLogin ? <SignUp /> : <Navigate to="/dashboard" />} /> */}
-            {/* {auth.isLogin ?
-            <React.Fragment>
-              <Route path="/wallet" element={<Wallet />} />
-              <Route path="/chip" element={<Chip />} />
-            </React.Fragment>
-            :
-            <Route path="*" element={<Navigate to="/" />} />
-          } */}
+            {auth.isLogin ? <Route path="/play" element={<Play />} loading /> :
+              <Route path="*" element={<Navigate to="/" />} />
+            }
           </Routes>
         </BrowserRouter>
         <ToastContainer />

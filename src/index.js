@@ -8,6 +8,7 @@ import configureStore from './store/store';
 import history from "./utils/history";
 import { createConfig, mainnet, WagmiConfig } from 'wagmi';
 import { createPublicClient, http } from 'viem'
+import { DAppProvider } from '@usedapp/core';
 
 const config = createConfig({
   autoConnect: true,
@@ -23,7 +24,9 @@ root.render(
   <React.StrictMode>
     <WagmiConfig config={config} >
       <Provider store={store}>
-        <App />
+        <DAppProvider config={{}}>
+          <App />
+        </DAppProvider>
       </Provider>
     </WagmiConfig>
   </React.StrictMode>

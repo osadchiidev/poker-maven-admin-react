@@ -2,10 +2,24 @@ import {
     LOGIN,
     LOGIN_ERROR,
     LOGIN_SUCCESS,
-  } from '../actions/action-type';
+    SET_MODE,
+    LOGOUT,
+    GET_BALANCE,
+    GET_BALANCE_SUCCESS,
+    BUY_CHIP,
+    WITHDRAW_CHIP,
+    BUY_CHIP_SUCCESS,
+    WITHDRAW_CHIP_SUCCESS
+} from '../actions/action-type';
   
-  export const login = data => ({type: LOGIN, data});
-  export const loginSuccess = payload => ({type: LOGIN_SUCCESS, payload});
-  export const loginError = error => ({type: LOGIN_ERROR, error});
-  
-  
+export const login = data => ({type: LOGIN, data});
+export const loginSuccess = payload => ({type: LOGIN_SUCCESS, payload});
+export const loginError = error => ({type: LOGIN_ERROR, error});
+export const setMode = data => ({type: SET_MODE, data});
+export const logout = () => ({type: LOGOUT});
+export const getBalance = () => ({type: GET_BALANCE});
+export const getBalanceSuccess = (data) => ({type: GET_BALANCE_SUCCESS, data});
+export const buyChip = (data) => ({type: BUY_CHIP, data});
+export const buyChipSuccess = (data) => ({type: BUY_CHIP_SUCCESS, data});
+export const withdrawChip = (data) => ({type: WITHDRAW_CHIP, data});
+export const withdrawChipSuccess = (data) => ({type: WITHDRAW_CHIP_SUCCESS, data});
