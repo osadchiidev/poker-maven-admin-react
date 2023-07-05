@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, message, Input, Avatar, Result } from 'antd';
+import { Row, Col, message, Input, Avatar } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEthers } from "@usedapp/core";
 import defaultAvatar from '../../assets/images/avatar0.jpg';
@@ -56,7 +56,8 @@ const Wallet = () => {
 
     useEffect(() => {
         dispatch(getBalance());
-    }, [])
+    }, [dispatch]);
+
     return (
         <div style={{ paddingTop: 10, marginTop: 10 }}>
             {contextHolder}
@@ -77,7 +78,7 @@ const Wallet = () => {
                         <div className="profile-down">
                             <Row gutter={[24, 24]}>
                                 <Col md={12}>
-                                    <img src={ChipImg} />
+                                    <img src={ChipImg} style={{width: '100%'}} alt=""/>
                                 </Col>
                                 <Col md={12} style={{ textAlign: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center', fontSize: 40, fontWeight: 700 }}>{user.Balance}</Col>
                             </Row>
@@ -86,7 +87,7 @@ const Wallet = () => {
                     {/* wallet connect */}
 
                     <div className="metamask-btn" onClick={activateBrowserWallet}>
-                        <img src={metamask} style={{ height: '60%' }} /><div style={{ fontSize: 20, fontWeight: 400, marginLeft: 10 }}>{account ? 'Metamask connected' : 'Connect with Metamask'}</div>
+                        <img src={metamask} style={{ height: '60%' }} alt="" /><div style={{ fontSize: 20, fontWeight: 400, marginLeft: 10 }}>{account ? 'Metamask connected' : 'Connect with Metamask'}</div>
                     </div>
                     <div className="otherwallet-btn" style={{ fontSize: 20, fontWeight: 400 }}>Connect with Desktop App</div>
                 </Col>

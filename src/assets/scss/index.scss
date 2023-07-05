@@ -372,7 +372,6 @@ h4 {
 		margin-top: 10px;
 	}
 }
-
 .control-tabs {
 	height: 40px;
 	background-color: $darkBg;
@@ -380,8 +379,7 @@ h4 {
 	padding: 5px;
 	display: flex;
 	flex-direction: row;
-	justify-content: start;
-	width: auto;
+
 	.control-tab {
 		height: 100%;
 		border-radius: 10px;
