@@ -4,7 +4,7 @@ import constants from './config';
 const instance = axios.create({
   baseURL: constants.BASE_URL,
   headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`
+    Authorization: `Bearer ${sessionStorage.getItem('token')}`
   }
 });
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Avatar, Popover, Row, Switch } from 'antd';
 import defaultAvatar from '../../assets/images/avatar0.jpg';
 import playBtn from '../../assets/images/play.png';
@@ -21,10 +21,10 @@ const Header = () => {
     }, [dispatch, navigate]);
     return (
         <div className='header'>
-            {isLogin &&<div style={{fontSize: 25, fontWeight: 700, paddingLeft: 20}}>Welcome back!</div>}
+            {isLogin ? <div style={{fontSize: 25, fontWeight: 700, paddingLeft: 20}}>Welcome back!</div> : <div style={{fontSize: 25, fontWeight: 700, paddingLeft: 20}}>Welcome to Tiltedstacks</div>}
             <div style={{display: 'flex', flexDirection: 'row', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
                 {isLogin && <div className="play-btn" onClick={() => navigate('/play')}>
-                    <img src={playBtn} style={{ height: '100%' }} />
+                    <img src={playBtn} style={{ height: '100%' }} alt='' />
                 </div>}
                 {isLogin && <Popover
                     placement="bottomRight"

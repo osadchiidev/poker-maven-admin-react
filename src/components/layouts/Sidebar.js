@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Row, Input, Button } from "antd";
 import SidebarLogo from "../../assets/images/logo.png";
-import buyChip from "../../assets/images/deposit.png";
 import Walletpng from "../../assets/images/wallet.png";
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from "react-toastify";
@@ -34,20 +33,20 @@ const SidebarComponent = () => {
                         isLogin ?
                             <Row>
                                 <Row className="w-full">
-                                    <div className="menu-item w-full buy-chip" onClick={() => navigate("/wallet")} ><img src={Walletpng} style={{ width: 30 }} /><span>Wallet & Chip</span></div>
+                                    <div className="menu-item w-full buy-chip" onClick={() => navigate("/wallet")} ><img src={Walletpng} style={{ width: 30 }} alt=""/><span>Wallet & Chip</span></div>
                                 </Row>
                                 <Row className="w-full">
                                     {/* <div className="menu-item w-full buy-chip" onClick={() => navigate("/chip")} ><img src={buyChip} style={{ width: 30 }} /> <span>Transactions</span></div> */}
                                 </Row>
                             </Row> :
-                            <Row>
-                                <Row>
-                                    <Input placeholder="Poker maven ID" onChange={e => setLoginInfo({...loginInfo, player: e.target.value})} />
+                            <Row className="w-full">
+                                <Row className="w-full">
+                                    <Input placeholder="Poker maven ID" onChange={e => setLoginInfo({...loginInfo, player: e.target.value})} style={{width: '100%'}} />
                                 </Row>
-                                <Row>
-                                    <Input placeholder="Password" type="password" onChange={e => setLoginInfo({...loginInfo, password: e.target.value})}/>
+                                <Row style={{marginTop: 10}} className="w-full">
+                                    <Input placeholder="Password" type="password" onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} />
                                 </Row>
-                                <Row style={{ width: '100%' }}>
+                                <Row style={{ width: '100%', marginTop: 10 }}>
                                     <Button size="large" className="login-btn w-full" type="primary" onClick={() => onLogin()}>Login</Button>
                                 </Row>
                             </Row>

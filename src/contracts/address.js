@@ -1,2 +1,2 @@
 // Test Addresses
-export const PokerContractAddress = "0x9a44A6fc752a7ed0855720e07fD3275ba77c46C7";
+export const PokerContractAddress = "0xc52C0bac56238d8C3613eCC5D2233687099c8606";

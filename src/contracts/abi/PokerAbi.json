@@ -3,7 +3,7 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_bepToken",
+                "name": "_USDT",
                 "type": "address"
             }
         ],
@@ -12,7 +12,7 @@
     },
     {
         "inputs": [],
-        "name": "bepToken",
+        "name": "USDT",
         "outputs": [
             {
                 "internalType": "contract IERC20",
@@ -31,7 +31,7 @@
                 "type": "uint256"
             }
         ],
-        "name": "depositBUSD",
+        "name": "depositUSDT",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -41,7 +41,7 @@
         "name": "owner",
         "outputs": [
             {
-                "internalType": "address",
+                "internalType": "address payable",
                 "name": "",
                 "type": "address"
             }
@@ -70,7 +70,7 @@
     {
         "inputs": [
             {
-                "internalType": "address",
+                "internalType": "address payable",
                 "name": "_newOwner",
                 "type": "address"
             }

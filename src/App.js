@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import "./index.scss";
 import "./assets/scss/index.scss";
@@ -24,7 +24,6 @@ const MyLoadingScreen = () =>
 
 function App() {
 
-  const [loadingInProgress, setLoading] = useState(false);
   const auth = useSelector(s => s.user);
   const [height, setHeight] = React.useState(window.innerHeight);
   React.useEffect(() => {
@@ -33,7 +32,6 @@ function App() {
     }
     window.addEventListener('resize', handleResize)
   })
-
 
   return (
     <ConfigProvider theme={{
